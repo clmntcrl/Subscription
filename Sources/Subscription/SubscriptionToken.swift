@@ -3,12 +3,12 @@
 
 import Foundation
 
-final class SubscriptionToken {
+public final class SubscriptionToken {
 
     let token: NSObjectProtocol
     let center: NotificationCenter
 
-    init(token: NSObjectProtocol, center: NotificationCenter) {
+    public init(token: NSObjectProtocol, center: NotificationCenter) {
         self.token = token
         self.center = center
     }

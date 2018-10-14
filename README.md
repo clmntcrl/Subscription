@@ -1,22 +1,18 @@
-# subscription
+# Subscription
 
-Swift typed notification implementation with automatic unregistering
+Swift self unregistering typed notification.
 
-<br />
+---
 
-### Usage
+## Usage
 
 ```swift
 let valueDidChange = Subscription<String>(name: "valueDidChangeNotification")
 
-var value: String = "" {
+var value: String = "ok" {
     didSet { valueDidChange.next(value) }
 }
 
 let subscriptionToken = valueDidChange.subscribe { print($0) }
-value = "ok" // ok
 value += "!" // ok!
 ```
-
-
-

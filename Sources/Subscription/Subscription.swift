@@ -3,18 +3,18 @@
 
 import Foundation
 
-struct Subscription<A> {
+public struct Subscription<A> {
 
-    let name: Notification.Name
-    let center: NotificationCenter
+    public let name: Notification.Name
+    public let center: NotificationCenter
 
     let encode: (A) -> Notification
     let decode: (Notification) -> A
 }
 
-extension Subscription {
+public extension Subscription {
 
-    init(name: String = "\(UUID().uuidString)_Notification", center: NotificationCenter = .default) {
+    public init(name: String = "\(UUID().uuidString)_Notification", center: NotificationCenter = .default) {
         let name = Notification.Name(name)
         self.name = name
         self.center = center
@@ -23,14 +23,14 @@ extension Subscription {
         self.decode = { $0.userInfo!["payload"] as! A }
     }
 
-    func subscribe(_ onNext: @escaping (A) -> Void) -> SubscriptionToken {
+    public func subscribe(_ onNext: @escaping (A) -> Void) -> SubscriptionToken {
         let token = center.addObserver(forName: name, object: .none, queue: .none) {
             onNext(self.decode($0))
         }
         return .init(token: token, center: center)
     }
 
-    func next(_ value: A) {
+    public func next(_ value: A) {
         center.post(encode(value))
     }
 }

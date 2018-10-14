@@ -3,9 +3,9 @@
 
 import Foundation
 
-extension NotificationCenter {
+public extension NotificationCenter {
 
-    func addObserver<A>(
+    public func addObserver<A>(
         for subscription: Subscription<A>,
         queue: OperationQueue? = .none,
         using block: @escaping (A) -> Void
@@ -14,7 +14,7 @@ extension NotificationCenter {
         return subscription.subscribe(block)
     }
 
-    func post<A>(subscription: Subscription<A>, value: A) {
+    public func post<A>(subscription: Subscription<A>, value: A) {
         subscription.next(value)
     }
 }
