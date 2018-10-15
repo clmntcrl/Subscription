@@ -1,8 +1,8 @@
 # Subscription
 
-Swift self unregistering typed notification.
+Type-safe subscription to NotificationCenter with self unsubscription.
 
----
+<br />
 
 ## Usage
 
@@ -14,5 +14,19 @@ var value: String = "ok" {
 }
 
 let subscriptionToken = valueDidChange.subscribe { print($0) }
-value += "!" // ok!
+value += "!" // print: "ok!"
+```
+
+For more details, feel free to take a look at `Subscription.playground`.
+
+## Installation
+
+```swift
+import PackageDescription
+
+let package = Package(
+    dependencies: [
+        .package(url: "https://github.com/clmntcrl/Subscription.git", from: "0.1.0"),
+    ]
+)
 ```
