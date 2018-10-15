@@ -2,7 +2,7 @@
 
 # Subscription
 
-Swift self unregistering typed notification.
+Type-safe subscription to NotificationCenter with self unsubscription.
 */
 import Foundation
 import Subscription
