@@ -26,7 +26,7 @@ import PackageDescription
 
 let package = Package(
     dependencies: [
-        .package(url: "https://github.com/clmntcrl/Subscription.git", from: "0.1.0"),
+        .package(url: "https://github.com/clmntcrl/subscription.git", from: "0.1.0"),
     ]
 )
 ```
