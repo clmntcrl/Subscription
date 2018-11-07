@@ -35,7 +35,7 @@ public extension Subscription {
     }
 }
 
-extension Subscription {
+public extension Subscription {
 
     static func from(
         systemNotificationWithName name: Notification.Name,
